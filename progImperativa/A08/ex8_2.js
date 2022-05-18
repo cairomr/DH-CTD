@@ -34,7 +34,7 @@ function vendas(quantidade){
 function pesoIdeal(Sexo,Altura){
     if (Sexo === 1){
         return `Mulher, Seu peso ideal: ` + ((62.1	*	Altura)	- 44.7).toFixed(2);
-    } else {
+    } else if (Sexo === 2){
         return `Homem, Seu peso ideal: ` + ((72.7	*	Altura)	- 58).toFixed(2);
     }
 }
