@@ -12,26 +12,33 @@ function microondas(opt,time=0){
     if(opt > 5 || opt < 1){
         return msg = "Prato inexistente";;
     }
-    // CONDICAO USADA CASO O USUARIO NAO ENTRE COM VALOR EXTRA DE TEMPO. DESSA FORMA O PROGRAMA NAO EXIBE MENSAGEM EXTRA.
-    if(time==0){
-        time = comida;
-    }
+    // CONDICAO TERNARIA, USADA CASO O USUARIO NAO ENTRE COM VALOR EXTRA DE TEMPO. DESSA FORMA O PROGRAMA NAO EXIBE MENSAGEM EXTRA.
+    time === 0 ? time = comida : " ";
     // BLOCO CONDICIONAL, DEFINE TIPO DE COMIDA PARA TER ACESSO A FUNCAO QUE DA RESPOSTA SOBRE O TEMPO
-    if(opt==1){
-        comida = pipoca;
-        msg = resposta(time);
-    } else if (opt==2) {
-        comida = macarrao;
-        msg = resposta(time);
-    } else if (opt==3){
-        comida = carne;
-        msg = resposta(time);        
-    } else if (opt==4){
-        comida = feijao;
-        msg = resposta(time);        
-    } else {
-        comida = brigadeiro;
-        msg = resposta(time);        
+    switch(opt){
+        case(1): 
+            comida = pipoca;  
+            msg = resposta(time);
+            break;
+        case(2):
+            comida = macarrao;
+            msg = resposta(time);
+            break;
+        case(3):
+            comida = carne;
+            msg = resposta(time);
+            break;
+        case(4):
+            comida = feijao;
+            msg = resposta(time);
+            break;
+        case(5):
+            comida = brigadeiro;
+            msg = resposta(time);
+            break;
+        default:
+            msg = "Prato inexistente";
+            break;
     }
     // FUNCAO QUE DEFINE A MENSAGEM CONDICIONAL SOBRE A COMIDA.
     function resposta(time) {
@@ -47,7 +54,6 @@ function microondas(opt,time=0){
         return msg;
     }
     // RETORNO DA FUNCAO MICROONDAS
-    return fim + msg;
-}
-// TESTE DA FUNCAO MICROONDAS
-console.log(microondas(1,10));
+    return fim + msg; 
+}// TESTE DA FUNCAO MICROONDAS
+console.log(microondas(0));
