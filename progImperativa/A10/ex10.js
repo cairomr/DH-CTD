@@ -57,5 +57,4 @@ function compararCalificaciones(asia, europa) {
   comparacionesAsiaEuropa[1] = asia[1] === europa[1]
   comparacionesAsiaEuropa[2] = asia[2] === europa[2]
   comparacionesAsiaEuropa[3] = asia[3] === europa[3]
-
-
+}

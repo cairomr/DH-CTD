@@ -33,39 +33,37 @@ function compararCalificaciones(asia, europa) {
     return comparacionesAsiaEuropa;
 }
 // VARIAVEIS REAPROVEITADAS NA FUNCAO MEDIA E SOMA
-const lista = [2,5,4,5,8,7,-20,45];
+var lista = [4,5];
 let total = 0;
 let media = 0;
 let maior = 0;
 
 // FUNCAO QUE RECEBE O ARRAY E SOMA E PEDE A MEDIA
 function pontuacaoMedia(array){
-    let x = array.length;
+    let x = 0;
     let divisor = array.length;
-    while (x>0) {
+    while (x <= array.length) {
+        console.log(x);
         total = total + array.pop();
-        x--;
+        x++;
     }
-    return Media(total,divisor);
-    // FUNACO QUE CALCULA A MEDIA
-    function Media(x,y){
+    return Media(total,divisor); 
+}
+// FUNACO QUE CALCULA A MEDIA
+function Media(x,y){
         media = x / y;
         return 'A media do array: '+ media.toFixed(2);
-    }   
-}
+}  
 // FUNCAO CALCULA O MAIOR NUMERO EM UM ARRAY
 function pontuacaoMaior(array){
     maior = array.shift();
-    let y = parseInt(array.length);
-    for(let x=0;x<=y;x++){
+    for(let x=0;x<=array.length;x++){
         if(maior < array[x]){
             maior = array[x];
         };
     }
     return 'O maior numero do array: '+ maior;
 }
-
-let MaiorNota = calcMaiorNota(a,b,c);
 
 function calcMaiorNota(array1,array2,array3){
     for (let x = 1; x < 4 ; x++){
@@ -74,5 +72,4 @@ function calcMaiorNota(array1,array2,array3){
 }
 
 // CHAMADA PARA FUNCOES
-console.log(pontuacaoMaior(lista));
 console.log(pontuacaoMedia(lista));

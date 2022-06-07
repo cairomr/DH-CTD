@@ -40,4 +40,18 @@ function digitalHouse(x,y){
 }
 console.log(digitalHouse(1,3));
 
+et FizzBuzz = (x, y) => {
+    for (let i = 1; i <= 100; i++) {
+        if (i % x === 0 && i % y !== 0) {
+            console.log(i + ' - Fizz' + '\n');
+        } else if (i % y === 0 && i % x !== 0) {
+            console.log(i + ' - Buzz' + '\n');
+        } else if (i % y === 0 && i % x === 0) {
+            console.log(i + ' - FizzBuzz' + '\n');
+        }
+    }
+    return '\n';
+}
+
+console.log(FizzBuzz(1, 2))
 
