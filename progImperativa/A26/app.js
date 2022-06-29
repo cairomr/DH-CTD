@@ -12,14 +12,22 @@ function Carrinho(nomeProduto, valorProduto, qualidadeProduto, status){
     //return array[nomeProduto,valorProduto,qualidadeProduto,status];
 }
 
-function filtroCarrinho(obj,min,max){
-    let array = obj.filter(function(item){
-        if(item >= min && item <= max){
-           console.log(item); 
-        }
-    } );
-    return array;
+function filterCarrinho(obj){
+    let min = 482;
+    let max = 1600;
+    let qualidade = 5;
+    let status = true;
+    let retorno = [];
+    for(dado in obj){
+        retorno = obj.filter( (item) => {
+            if(item.valorProduto >=min && item.valorProduto <=max && item.qualidadeProduto>qualidade && item.status === status){
+                return item;
+            }
+        });
+    }
+    return retorno;
 }
+
 function somaCarrinho(produtos){
     let valor = produtos.map((item) => item.valorProduto);
     let msg = 'O valor total dos produtos no carrinho: ';
@@ -27,10 +35,13 @@ function somaCarrinho(produtos){
 }
 
 produtos.push(
-    new Carrinho(n1,1500,10,true),
+    new Carrinho(n1,1500,10,false),
     new Carrinho(n2,1400,9,true),
-    new Carrinho(n3,2100,8,false),
+    new Carrinho(n3,400,8,true),
 );
-let min = 482;
-let max = 1600;
-console.log(filtroCarrinho(produtos,482,1600));
+
+console.log('Resultado da busca: ');
+console.log(filterCarrinho(produtos));
+console.log();
+console.log(somaCarrinho(produtos));
+console.log();
